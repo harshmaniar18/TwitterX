@@ -29,6 +29,7 @@
     "start": "serve -p $PORT ./public"
   },
   "dependencies": {
-    "serve": "^14.2.3"
+    "serve": "^14.2.3",
+    "vue": "^3.4.27"
   }
 }
