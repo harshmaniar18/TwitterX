@@ -15,4 +15,8 @@ app.get('/todos', async (req, res) => {
     res.send(todos)
 })
 
+app.get('/', async (req, res) => {
+    res.send('Welcome to TwitterX Backend')
+})
+
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
