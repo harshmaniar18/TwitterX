@@ -1,5 +1,5 @@
 import express from 'express'
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 import cors from 'cors'
 import { loggerMiddleware } from './helpers/middleware/logger.js'
 import User from './models/user.js';
