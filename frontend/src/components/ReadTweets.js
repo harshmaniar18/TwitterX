@@ -1,5 +1,3 @@
-// ReadTweets.js
-
 export default {
   template: `
     <div>

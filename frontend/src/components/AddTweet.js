@@ -1,5 +1,3 @@
-// AddTweet.js
-
 export default {
   template: `
     <div>
