@@ -2,7 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import { loggerMiddleware } from './helpers/middleware/logger.js'
-import User from './models/user.js';
+import User from './models/user.js'
 
 const PORT = 3001
 const MONGO_DB_URL = 'mongodb+srv://harshmaniar18:jIYZ2FvxB7asqSoM@twitterx.jtbulu3.mongodb.net/?retryWrites=true&w=majority&appName=TwitterX'
