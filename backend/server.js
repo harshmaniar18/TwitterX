@@ -68,12 +68,34 @@ async function addNewTweet(req, res)
     }
 }
 
+async function fetchTweets(req, res)
+{
+    const { username } = req.params;
+    try
+    {
+        const user = await User.findOne({ username }).populate('tweets')
+        if (!user)
+        {
+            return res.status(404).send('User not found');
+        }
+
+        res.send(user.tweets);
+    }
+    catch (error)
+    {
+        console.error('Error fetching tweets:', error)
+        res.status(500).send('Error fetching tweets')
+    }
+}
+
 async function main() {
     await mongoose.connect(MONGO_DB_URL).then(() => console.log('Database Connected!'))
 
-    app.post('/addUser', addNewUser);
+    app.post('/addUser', addNewUser)
 
-    app.post('/addTweet', addNewTweet);
+    app.post('/addTweet', addNewTweet)
+
+    app.get('/users/:username/tweets', fetchTweets)
 
     app.get('/', async (req, res) => {
         res.send('Welcome to TwitterX Backend!')
