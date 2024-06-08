@@ -24,9 +24,9 @@
   },
   "contributors": [],
   "scripts": {
-    "dev": "node server.js",
+    "dev": "node src/server.js",
     "test": "",
-    "start": "node server.js"
+    "start": "node src/server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
