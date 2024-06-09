@@ -11,14 +11,12 @@
     
     <title>TwitterX!</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- Vue.js CDN -->
+    <script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
 </head>
 
 <body>
-    <h1>Welcome to TwitterX!</h1>
+    <h1 class="text-center mt-4">Welcome to TwitterX!</h1>
     <div id="app">
-        <add-user></add-user>
-        <add-tweet></add-tweet>
-        <read-tweets :tweets="tweets"></read-tweets>
     </div>
     <script type="module" src="./App.js"></script>
 </body>

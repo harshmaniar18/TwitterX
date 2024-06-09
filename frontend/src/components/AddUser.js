@@ -5,7 +5,7 @@ export default
             <h2>Add User</h2>
             <input type="text" v-model="username" placeholder="Enter username">
             <input type="text" v-model="password" placeholder="Enter password">
-            <button @click="addUser">Add User</button>
+            <button @click="addUser" type="button" class="btn btn-primary">Add User</button>
         </div>
     `,
 

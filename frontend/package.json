@@ -24,7 +24,7 @@
   },
   "contributors": [],
   "scripts": {
-    "dev": "serve -p 3000 ./src",
+    "dev": "serve -p 3000 ./src --single",
     "test": "",
     "start": "serve -p $PORT ./src"
   },
