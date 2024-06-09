@@ -1,19 +1,8 @@
-// import Vue from 'vue';
-import AddUser from './components/AddUser.js';
-import AddTweet from './components/AddTweet.js';
-import ReadTweets from './components/ReadTweets.js';
+import router from './router/routes.js';
 
 const app = Vue.createApp({
-    components: {
-        'add-user': AddUser,
-        'add-tweet': AddTweet,
-        'read-tweets': ReadTweets
-      },
-    data() {
-        return {
-            tweets: []
-        }
-    }
+    template: '<router-view></router-view>',
 })
 
+app.use(router)
 app.mount('#app')
