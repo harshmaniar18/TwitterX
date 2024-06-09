@@ -37,6 +37,7 @@ async function addTweet(req, res)
 async function fetchTweets(req, res)
 {
     const { username } = req.params;
+    console.error('Fetching tweets:')
     try
     {
         const user = await User.findOne({ username }).populate('tweets')
