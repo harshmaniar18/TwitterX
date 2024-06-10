@@ -6,6 +6,7 @@ import AddTweet from '../components/AddTweet.js';
 import ReadTweets from '../components/ReadTweets.js';
 import Home from '../components/Home.js';
 import Feed from '../components/Feed.js';
+import Users from '../components/Users.js';
 
 const routes = [
     { 
@@ -29,7 +30,7 @@ const routes = [
         component: AddTweet
     },
     {   
-        path: '/readTweets',
+        path: '/users/:username/tweets',
         name: 'ReadTweets',
         component: ReadTweets
     },
@@ -37,6 +38,11 @@ const routes = [
         path: '/feed',
         name: 'Feed',
         component: Feed
+    },
+    {   
+        path: '/users',
+        name: 'Users',
+        component: Users
     }
 ]
 
