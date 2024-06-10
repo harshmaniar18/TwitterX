@@ -1,8 +1,8 @@
 {
-  "name": "app-frontend",
+  "name": "TwitterX_Frontend",
   "version": "1.0.0",
-  "description": "My fullstack app",
-  "main": "index.js",
+  "description": "Frontend app for TwitterX project",
+  "main": "App.js",
   "type": "module",
   "license": "AGPL-version-3.0",
   "private": false,
@@ -13,20 +13,20 @@
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/harshmaniar18/TwitterX/tree/main/frontend"
   },
   "bugs": "",
   "keywords": [],
   "author": {
-    "name": "",
-    "email": "",
+    "name": "Harsh Maniar",
+    "email": "harshmaniar18@gmail.com",
     "url": ""
   },
   "contributors": [],
   "scripts": {
     "dev": "serve -p 3000 ./src --single",
     "test": "",
-    "start": "serve -p $PORT ./src"
+    "start": "serve -p 3000 ./src --single"
   },
   "dependencies": {
     "serve": "^14.2.3",
