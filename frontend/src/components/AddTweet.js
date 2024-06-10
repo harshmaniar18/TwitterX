@@ -2,10 +2,6 @@ export default
 {
     template: `
         <div>
-            <h2>Add Tweet</h2>
-            <input type="text" v-model="username" placeholder="Enter username">
-            <input type="text" v-model="tweet" placeholder="Enter tweet">
-            <button @click="addTweet">Add Tweet</button>
         </div>
     `,
 
@@ -13,8 +9,25 @@ export default
     {
         return {
             username: '',
-            tweet: ''
+            tweet: '',
+            dateTime: new Date()
         };
+    },
+
+    created()
+    {
+        this.username = this.$route.params.username;
+        this.tweet = this.$route.params.tweet;
+
+        if (this.username)
+        {
+            this.addTweet();
+        }
+        else
+        {
+            // alert('Please sign up or log in to add new tweet!')
+            this.$router.push('/');
+        }
     },
 
     methods:
@@ -23,9 +36,10 @@ export default
         {
             if (this.username.trim() !== '' && this.tweet.trim() !== '')
             {
-                console.log('Adding tweet:', this.tweet, 'for user', this.username);
+                console.log('Adding tweet for user', this.username);
                 try
                 {
+                    this.dateTime = new Date()
                     const response = await fetch('http://localhost:3001/addTweet', {
                         method: 'POST',
                         headers:
@@ -35,17 +49,21 @@ export default
                         body: JSON.stringify(
                             {
                                 content: this.tweet,
-                                username: this.username
+                                username: this.username,
+                                dateTime: this.dateTime.toISOString(),
                             })
                     });
 
                     if (response.ok)
                     {
-                        alert('Tweet added successfully');
+                        // alert('Tweet added successfully');
+                        const firstName = this.$route.params.firstName
+                        this.$router.push({ name: 'Feed', params: { username: this.username, firstName } });
                     }
                     else
                     {
                         alert('Failed to add tweet');
+                        this.$router.push('/');
                     }
                     this.username = '';
                     this.tweet = '';

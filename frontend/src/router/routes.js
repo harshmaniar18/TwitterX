@@ -5,6 +5,7 @@ import AddUser from '../components/AddUser.js';
 import AddTweet from '../components/AddTweet.js';
 import ReadTweets from '../components/ReadTweets.js';
 import Home from '../components/Home.js';
+import Feed from '../components/Feed.js';
 
 const routes = [
     { 
@@ -32,6 +33,11 @@ const routes = [
         name: 'ReadTweets',
         component: ReadTweets
     },
+    {   
+        path: '/feed',
+        name: 'Feed',
+        component: Feed
+    }
 ]
 
 const router = VueRouter.createRouter({

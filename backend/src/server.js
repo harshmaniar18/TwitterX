@@ -14,7 +14,36 @@ app.use(express.json());
 app.use(cors())
 app.use(loggerMiddleware)
 
-async function main() {
+async function clearDB()
+{
+    // Get list of collections
+    const collections = await mongoose.connection.db.listCollections().toArray();
+
+    // Iterate over each collection
+    for (const collection of collections) {
+        // Print the collection name
+        console.log(`Collection: ${collection.name}`);
+
+        // Query all documents in the collection
+        const documents = await mongoose.connection.db.collection(collection.name).find({}).toArray();
+
+        // Print each document
+        documents.forEach((document, index) => {
+            console.log(`Document ${index + 1}:`, document);
+        });
+
+        // Drop the collection
+        await mongoose.connection.db.dropCollection(collection.name);
+        console.log(`Dropped collection: ${collection.name}`);
+    }
+
+    // Close the connection
+    await mongoose.connection.close();
+    console.log('Connection closed.');
+}
+
+async function main()
+{
     await mongoose.connect(MONGO_DB_URL).then(() => console.log('Database Connected!'))
 
     app.use(userRouter);
@@ -25,7 +54,6 @@ async function main() {
     })
 
     app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
-
 }
 
 main()

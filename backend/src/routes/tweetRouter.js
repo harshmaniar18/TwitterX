@@ -4,12 +4,12 @@ import User from '../models/user.js';
 
 async function addTweet(req, res)
 {
-    const { content, username } = req.body;
+    const { content, username, dateTime } = req.body;
     console.log(`Trying to add tweet "${content}" for ${username}`)
 
-    if (!username || !content)
+    if (!username || !content || !dateTime)
     {
-        return res.status(400).send('Username and tweet are required!');
+        return res.status(400).send('Username, tweet and dateTime are required!');
     }
 
     const user = await User.findOne({ username });
@@ -20,7 +20,7 @@ async function addTweet(req, res)
 
     try
     {
-        const tweet = new Tweet({ content, user: user._id });
+        const tweet = new Tweet({ content, user: user._id, dateTime });
         await tweet.save();
 
         user.tweets.push(tweet._id);

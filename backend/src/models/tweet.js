@@ -11,6 +11,10 @@ const tweetSchema = new Schema({
         ref: 'User',
         required: true,
     },
+    dateTime: {
+        type: Date,
+        default: Date.now,
+    },
 })
 
 export default model('Tweet', tweetSchema)

@@ -1,12 +1,25 @@
 export default
 {
     template: `
-        <div>
-            <h2>Enter credentials below to Log In</h2>
-            <input type="text" v-model="username" placeholder="Enter username">
-            <input type="text" v-model="password" placeholder="Enter password">
-            <button @click="logIn" type="button" class="btn btn-primary">Log In</button>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 border p-4">
+                <form @submit.prevent="logIn">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
+                        <input type="username" v-model="username" class="form-control" id="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                        <input type="password" v-model="password" class="form-control" id="password" required>
+                    </div>
+                    <div class="mt-4 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
+    </div>
     `,
 
     data()
@@ -31,14 +44,16 @@ export default
 
                     if (response.ok)
                     {
-                        alert('Log in successful!');
+                        // alert('Log in successful!');
+                        const firstName = await response.text();
+                        this.$router.push({ name: 'Feed', params: { username: this.username, firstName } });
+                        this.username = '';
+                        this.password = '';
                     }
                     else
                     {
                         alert('Failed to log in, please check your credentials');
                     }
-                    this.username = '';
-                    this.password = '';
                 }
                 catch (error)
                 {
