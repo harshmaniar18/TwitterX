@@ -65,9 +65,26 @@ async function addUser(req, res)
     }
 }
 
+async function fetchUsers(req, res)
+{
+    console.error('Fetching users:')
+    try
+    {
+        const users = await User.find({})
+        console.log(users.length)
+        res.send(users);
+    }
+    catch (error)
+    {
+        console.error('Error fetching users:', error)
+        res.status(500).send('Error fetching users')
+    }
+}
+
 const userRouter = express.Router();
 
 userRouter.post('/addUser', addUser)
 userRouter.get('/logIn', logIn)
+userRouter.get('/users', fetchUsers)
 
 export default userRouter;
