@@ -75,7 +75,7 @@ export default
         }
         else
         {
-            // alert('Please sign up or log in to see your feed!')
+            alert('This app does not maintain sessions, please access your feed via log in')
             this.$router.push('/');
         }
     },

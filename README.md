@@ -1,5 +1,7 @@
-# Real-World JavaScript Boilerplate
-A boilerplate to help you get started
+# TwitterX
+Toy twitter application. Final project for Stanford TECH18 - Real World JavaScript
+Author: Harsh Maniar
+Email: harshmaniar18@gmail.com
 
 ### Requirements
 - `node >= v20`
@@ -7,19 +9,20 @@ A boilerplate to help you get started
 
 ### Backend
 
-#### Installation
+#### Installation and Running
 ```bash
 cd ./backend
 npm install
+npm start
 ```
 
 ### Frontend
 
-#### Installation
+#### Installation and Running
 ```bash
 cd ./frontend
 npm install
+npm start
 ```
 
 ### Caveats
-This boilerplate may be missing things, quite intentionally. It's up to you to catch the missing file(s) and/or bugs.
